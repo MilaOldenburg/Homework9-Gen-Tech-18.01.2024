@@ -1,0 +1,39 @@
+ 1. В рамках БД "песочница" выведите З/П каждого менеджера, исходя из ставки в 5% от суммы заказов
+
+
+SELECT
+    EmployeeID,
+    SUM(OrderID * 0.05) AS Salary
+FROM
+    Orders
+GROUP BY
+   EmployeeID;
+
+2.Используя MySQL WorkBench (или аналогичный инструмент) создайте БД music (сервис онлайн-музыки) и в рамках нее таблицы users, tracks с полями на Ваше усмотрение
+
+
+-- Создание базы данных "music"
+CREATE DATABASE IF NOT EXISTS music;
+
+
+
+-- Создание таблицы "users"
+CREATE TABLE IF NOT EXISTS users (
+    userID INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    birthdate DATE,
+
+);
+
+-- Создание таблицы "tracks"
+CREATE TABLE IF NOT EXISTS tracks (
+    trackID INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    artist VARCHAR(255) NOT NULL,
+    album VARCHAR(255),
+    genre VARCHAR(50),
+    duration INT,
+    release_date DATE,
+   
+);
